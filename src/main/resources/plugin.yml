@@ -1,0 +1,30 @@
+name: ${project.name}
+version: ${project.version}
+main: dev.pollinations.minecraft.PollinationsPlugin
+api-version: "1.21"
+description: "${project.description}"
+author: scalyxapp-jpg
+website: https://pollinations.ai
+
+commands:
+  pollinations:
+    description: Ask Pollinations, turn a prompt into map art, list models, reload the config
+    usage: "/pollinations <ask|image|models|reload|key>"
+    aliases: [poll, polli]
+
+permissions:
+  pollinations.ask:
+    description: Ask a Pollinations text model
+    default: true
+  pollinations.image:
+    description: Generate an image and receive it as a filled map
+    default: op
+  pollinations.models:
+    description: List the live Pollinations models
+    default: op
+  pollinations.reload:
+    description: Reload the plugin configuration
+    default: op
+  pollinations.villager:
+    description: Chat with villager NPCs
+    default: true

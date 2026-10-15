@@ -1,0 +1,30 @@
+# Pollinations for Minecraft servers
+#
+# Paste an API key from https://enter.pollinations.ai/keys.
+# An empty key is not usable: the API rejects unauthenticated requests with 401.
+# Set it with /pollinations key <api-key> instead of editing this file.
+api-key: ""
+
+# Any id from https://gen.pollinations.ai/text/models
+text-model: "openai/gpt-6-sol"
+
+# Any id from https://gen.pollinations.ai/image/models
+image-model: "black-forest-labs/flux.2-klein-4b"
+
+# Maps hold 128x128 pixels, so the map is always rendered at that size.
+# The API requires at least 256 px per side, and a larger request only buys a
+# sharper saved PNG.
+image-size: 512
+
+# Villagers with a custom name answer players who speak near them.
+villager-chat:
+  enabled: true
+  cooldown-seconds: 5
+  # How close a player has to be for a villager to hear them.
+  radius: 6
+  # %name% is the villager's custom name, which also becomes its persona.
+  prompt: "You are %name%, a villager in a Minecraft world. Answer the player in one short sentence."
+  # How many earlier messages the villager remembers per player.
+  history-turns: 4
+
+request-timeout-seconds: 60
