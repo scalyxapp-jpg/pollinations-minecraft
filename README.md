@@ -3,6 +3,8 @@
 Bring [Pollinations](https://pollinations.ai) to a Paper or Spigot server: villagers
 that answer players, and prompts that become real in-game map art.
 
+![Map art produced by the plugin](docs/screenshot.png)
+
 Built for the Pollinations [quest #17246](https://github.com/pollinations/pollinations/issues/17246).
 
 ## What it does

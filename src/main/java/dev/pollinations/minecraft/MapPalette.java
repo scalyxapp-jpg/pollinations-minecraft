@@ -42,6 +42,8 @@ public final class MapPalette {
     /** Every reachable map byte, with the colour the client paints for it. */
     private static final byte[] PALETTE_BYTES;
     private static final int[] PALETTE_RGB;
+    /** Colour by map byte value, for tooling that previews a map. */
+    private static final int[] RGB_BY_BYTE = new int[256];
 
     static {
         // Base colour 0 is the client's "paint nothing" slot, so it is skipped.
@@ -56,14 +58,22 @@ public final class MapPalette {
                 int r = color[0] * factor / 255;
                 int g = color[1] * factor / 255;
                 int b = color[2] * factor / 255;
-                PALETTE_BYTES[index] = (byte) (base * 4 + shade);
+                byte mapByte = (byte) (base * 4 + shade);
+                PALETTE_BYTES[index] = mapByte;
                 PALETTE_RGB[index] = (r << 16) | (g << 8) | b;
+                RGB_BY_BYTE[Byte.toUnsignedInt(mapByte)] = PALETTE_RGB[index];
                 index++;
             }
         }
     }
 
     private MapPalette() {
+    }
+
+    /** The colour the client paints for a map byte. */
+    public static java.awt.Color colorFor(byte mapByte) {
+        int rgb = RGB_BY_BYTE[Byte.toUnsignedInt(mapByte)];
+        return new java.awt.Color((rgb >> 16) & 0xFF, (rgb >> 8) & 0xFF, rgb & 0xFF);
     }
 
     /** Scales the image to map size and returns one palette byte per pixel. */
