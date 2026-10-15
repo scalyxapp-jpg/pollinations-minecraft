@@ -1,5 +1,7 @@
 # Pollinations for Minecraft servers
 
+[![Made with pollinations.ai](https://raw.githubusercontent.com/pollinations/pollinations/main/packages/ui/src/brand/badge-made-with.svg)](https://pollinations.ai/?ref=badge)
+
 Bring [Pollinations](https://pollinations.ai) to a Paper or Spigot server: villagers
 that answer players, and prompts that become real in-game map art.
 
